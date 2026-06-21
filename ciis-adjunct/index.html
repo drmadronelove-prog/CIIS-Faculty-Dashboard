@@ -3,191 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adjunct Faculty Portal — ICP | CIIS</title>
-  <meta name="description" content="Resource hub for adjunct professors in the Integral Counseling Psychology program at the California Institute of Integral Studies.">
+  <title>Teaching in ICP — core faculty, adjunct faculty, teaching assistants | CIIS</title>
+  <meta name="description" content="Resources for adjunct faculty, core faculty, and teaching assistants in the Integral Counseling Psychology program at the California Institute of Integral Studies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body data-page="home" data-depth="0" data-title="Home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="topwrap"></div>
 
-<!-- ========== NAV ========== -->
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="ICP Adjunct Portal Home">
-      <div class="nav-logo-emblem">
-        <!-- CIIS-style spiral emblem (SVG) -->
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" stroke="white" stroke-width="1.5" fill="none"/>
-          <circle cx="20" cy="20" r="12" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
-          <circle cx="20" cy="20" r="6"  stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
-          <circle cx="20" cy="20" r="2"  fill="white" opacity="0.7"/>
-          <line x1="20" y1="2"  x2="20" y2="8"  stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="20" y1="32" x2="20" y2="38" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="2"  y1="20" x2="8"  y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="32" y1="20" x2="38" y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-        </svg>
-      </div>
-      <div class="nav-logo-text">
-        <span class="org">CIIS · ICP Program</span>
-        <span class="portal">Adjunct Faculty Portal</span>
-      </div>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="hr-pay.html">HR &amp; Pay</a></li>
-      <li><a href="pedagogy.html">Pedagogy</a></li>
-      <li><a href="expectations.html">Expectations</a></li>
-      <li><a href="campus-map.html">Campus Map</a></li>
-      <li><a href="transportation.html">Getting Here</a></li>
-      <li><a href="approach.html">CIIS Approach</a></li>
-    </ul>
+  <div class="shell">
+    <div id="sidebar"></div>
+
+    <main id="main" class="content">
+      <nav id="breadcrumb" class="breadcrumb"></nav>
+
+      <!-- ===== HERO ===== -->
+      <section class="hero" aria-labelledby="hero-h">
+        <div class="hero-body">
+          <span class="eyebrow">California Institute of Integral Studies</span>
+          <h1 id="hero-h">Welcome. What do you need?</h1>
+          <p class="hero-sub">Resources for adjunct faculty, core faculty, and teaching assistants in the ICP program.</p>
+          <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:1rem;">
+            <i class="ti ti-arrow-up" aria-hidden="true"></i> Choose your role above to personalize what you see.
+          </p>
+          <label for="qf-search" class="searchbar">
+            <i class="ti ti-search" aria-hidden="true"></i>
+            <span class="sr-only">Search resources</span>
+            <input id="qf-search" type="search" placeholder="Search — payroll, syllabus, Canvas setup…" autocomplete="off">
+          </label>
+        </div>
+        <div class="hero-media">
+          <img src="assets/images/hero-students.svg" alt="Three diverse college students standing together outdoors with books, in front of trees, rolling hills, and a rising sun.">
+        </div>
+      </section>
+
+      <!-- ===== QUICK-FIND GRID ===== -->
+      <section class="section" aria-labelledby="qf-h">
+        <h2 id="qf-h">Quick find</h2>
+        <p>Jump straight to what you came for. Type in the search box above to filter these cards.</p>
+        <div class="card-grid">
+
+          <a class="qf-card" href="hr-pay.html" data-role="all">
+            <span class="qf-icon"><i class="ti ti-currency-dollar ic-purple" aria-hidden="true"></i></span>
+            <h3>Getting paid</h3>
+            <p>Contracts, payroll steps, direct deposit, timesheets.</p>
+          </a>
+
+          <a class="qf-card" href="pedagogy.html" data-role="all">
+            <span class="qf-icon"><i class="ti ti-file-text ic-teal" aria-hidden="true"></i></span>
+            <h3>Syllabi & rubrics</h3>
+            <p>Past syllabi, course descriptions, grading rubrics.</p>
+          </a>
+
+          <a class="qf-card" href="first-steps.html" data-role="all">
+            <span class="qf-icon"><i class="ti ti-checklist ic-coral" aria-hidden="true"></i></span>
+            <h3>New hire checklist</h3>
+            <p>Step-by-step onboarding for new faculty and TAs.</p>
+          </a>
+
+          <a class="qf-card" href="first-steps.html#tech" data-role="all">
+            <span class="qf-icon"><i class="ti ti-device-desktop ic-blue" aria-hidden="true"></i></span>
+            <h3>Canvas & tech setup</h3>
+            <p>LMS tutorial, CIIS email, Colleague access.</p>
+          </a>
+
+          <a class="qf-card" href="hr-pay.html#events" data-role="all">
+            <span class="qf-icon"><i class="ti ti-calendar-event ic-amber" aria-hidden="true"></i></span>
+            <h3>Events approval</h3>
+            <p>Forms and deadlines for large, medium, and small events.</p>
+          </a>
+
+          <a class="qf-card" href="campus-map.html" data-role="all">
+            <span class="qf-icon"><i class="ti ti-map-2 ic-pink" aria-hidden="true"></i></span>
+            <h3>Campus & food</h3>
+            <p>Floor map, lounge, café, nearby coffee and food.</p>
+          </a>
+
+          <a class="qf-card" href="#support" data-role="all">
+            <span class="qf-icon"><i class="ti ti-headset ic-gray" aria-hidden="true"></i></span>
+            <h3>IT & facilities support</h3>
+            <p>Tech issues: VCL Hub chat. Building issues: Facilities email.</p>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ===== NEW THIS SEMESTER ===== -->
+      <section class="section" aria-labelledby="news-h">
+        <h2 id="news-h">New this semester</h2>
+        <div class="news-strip">
+          <ul class="news-list">
+            <li data-role="adjunct">
+              <i class="ti ti-point-filled" aria-hidden="true"></i>
+              <span>Prep work contracts now available for adjuncts teaching new courses
+                <span class="badge badge-new">New</span></span>
+            </li>
+            <li data-role="all">
+              <i class="ti ti-point-filled" aria-hidden="true"></i>
+              <span>Medium and large events now require an approval form before the semester starts
+                <span class="badge badge-required">Required</span></span>
+            </li>
+            <li data-role="all">
+              <i class="ti ti-point-filled" aria-hidden="true"></i>
+              <span>Complete FERPA training before your first class day
+                <span class="badge badge-required">Required</span></span>
+            </li>
+            <li data-role="all">
+              <i class="ti ti-point-filled" aria-hidden="true"></i>
+              <span>Send your welcome message to students 2 to 6 weeks before the semester
+                <span class="badge badge-required">Required</span></span>
+            </li>
+            <li data-role="all">
+              <i class="ti ti-point-filled" aria-hidden="true"></i>
+              <span>Past syllabi now linked directly from the Pedagogy page
+                <span class="badge badge-new">New</span></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== SUPPORT CONTACT STRIP ===== -->
+      <section class="section" id="support" aria-labelledby="support-h">
+        <h2 id="support-h">Support contacts</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="ct-head"><i class="ti ti-headset" aria-hidden="true"></i><h3>IT / tech support</h3></div>
+            <p class="ct-primary">Support chat at
+              <a href="https://www.vclhub.com" target="_blank" rel="noopener">vclhub.com</a></p>
+            <p>For tech issues, start with the VCL Hub support chat. Your program coordinator can also help troubleshoot or reach out to them on your behalf.</p>
+          </div>
+          <div class="contact-card">
+            <div class="ct-head"><i class="ti ti-building" aria-hidden="true"></i><h3>Facilities & building operations</h3></div>
+            <p class="ct-primary">
+              <a href="mailto:FacilitiesandBusinessOps@ciis.edu">FacilitiesandBusinessOps@ciis.edu</a></p>
+            <p>For building access, room issues, furniture, supplies, and equipment.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
-</nav>
 
-<!-- ========== HOME HERO ========== -->
-<section class="home-hero">
-  <div class="inner">
-    <span class="eyebrow">California Institute of Integral Studies</span>
-    <h1>Welcome, Adjunct Faculty</h1>
-    <p class="lead">Your resource hub for everything you need as an adjunct professor in the <em>Integral Counseling Psychology</em> program — from getting paid to finding the lounge.</p>
-    <div class="hero-cta-group">
-      <a class="btn btn-white" href="hr-pay.html">HR &amp; Pay Info →</a>
-      <a class="btn btn-outline-white" href="campus-map.html">Campus Map</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== WELCOME STRIP ========== -->
-<section class="welcome-strip">
-  <div class="inner">
-    <p class="quote">"The universe is made of stories, not of atoms."</p>
-    <p class="attribution">— Muriel Rukeyser &nbsp;·&nbsp; Often cited in the ICP tradition</p>
-  </div>
-</section>
-
-<!-- ========== QUICK LINKS ========== -->
-<section class="quicklinks-section">
-  <div class="section-label">Resources at a Glance</div>
-  <h2>What do you need today?</h2>
-  <div class="quicklinks-grid">
-
-    <a class="ql-card" href="hr-pay.html">
-      <div class="ql-icon">💰</div>
-      <h3>HR &amp; Getting Paid</h3>
-      <p>Contracts, payroll timelines, direct deposit setup, W-9s, and who to contact in HR.</p>
-    </a>
-
-    <a class="ql-card" href="pedagogy.html">
-      <div class="ql-icon">📚</div>
-      <h3>Pedagogical Resources</h3>
-      <p>Syllabus templates, Canvas LMS guides, library access, and recommended readings.</p>
-    </a>
-
-    <a class="ql-card" href="expectations.html">
-      <div class="ql-icon">📋</div>
-      <h3>Attendance &amp; Accommodations</h3>
-      <p>CIIS policies on attendance, disability accommodations, and student support referrals.</p>
-    </a>
-
-    <a class="ql-card" href="campus-map.html">
-      <div class="ql-icon">🏢</div>
-      <h3>Campus Map</h3>
-      <p>Interactive floor-by-floor guide: lounge, café, library, namaste hall, HR offices &amp; more.</p>
-    </a>
-
-    <a class="ql-card" href="transportation.html">
-      <div class="ql-icon">🚌</div>
-      <h3>Getting Here</h3>
-      <p>BART, Muni, bike parking, car parking, and cafés &amp; restaurants near 1453 Mission St.</p>
-    </a>
-
-    <a class="ql-card" href="approach.html">
-      <div class="ql-icon">🌀</div>
-      <h3>The CIIS Approach</h3>
-      <p>Experiential, integral, and social-justice-centered pedagogy — the heart of ICP teaching.</p>
-    </a>
-
-  </div>
-</section>
-
-<!-- ========== ABOUT STRIP ========== -->
-<section style="background: var(--ciis-white); border-top: 1px solid var(--ciis-cream-dk); padding: 3.5rem 1.5rem;">
-  <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-    <div>
-      <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ciis-coral); margin-bottom:0.4rem;">About this Portal</p>
-      <h2>Built for Adjunct Faculty in ICP</h2>
-      <p>The Integral Counseling Psychology (ICP) program at CIIS trains therapists rooted in depth psychology, somatic awareness, and social justice. Adjunct professors are the backbone of this community, and this portal is designed to make your administrative and pedagogical life as smooth as possible.</p>
-      <p>Content on each page serves as a living placeholder — program staff and faculty coordinators will continue to expand and update each section.</p>
-      <a class="btn btn-crimson" href="approach.html" style="margin-top:0.5rem;">Explore CIIS Approach →</a>
-    </div>
-    <div>
-      <div style="background: linear-gradient(135deg, var(--ciis-crimson), var(--ciis-coral)); border-radius: var(--radius-lg); padding: 2.5rem; color: #fff; text-align: center;">
-        <!-- CIIS Large Emblem -->
-        <svg viewBox="0 0 80 80" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem;" aria-hidden="true">
-          <circle cx="40" cy="40" r="38" stroke="white" stroke-width="2" fill="none" opacity="0.4"/>
-          <circle cx="40" cy="40" r="28" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
-          <circle cx="40" cy="40" r="18" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
-          <circle cx="40" cy="40" r="9"  stroke="white" stroke-width="1" fill="none" opacity="0.7"/>
-          <circle cx="40" cy="40" r="3"  fill="white" opacity="0.9"/>
-          <!-- tick marks -->
-          <line x1="40" y1="2"  x2="40" y2="10" stroke="white" stroke-width="1.5" opacity="0.5"/>
-          <line x1="40" y1="70" x2="40" y2="78" stroke="white" stroke-width="1.5" opacity="0.5"/>
-          <line x1="2"  y1="40" x2="10" y2="40" stroke="white" stroke-width="1.5" opacity="0.5"/>
-          <line x1="70" y1="40" x2="78" y2="40" stroke="white" stroke-width="1.5" opacity="0.5"/>
-          <line x1="12" y1="12" x2="18" y2="18" stroke="white" stroke-width="1" opacity="0.35"/>
-          <line x1="62" y1="62" x2="68" y2="68" stroke="white" stroke-width="1" opacity="0.35"/>
-          <line x1="68" y1="12" x2="62" y2="18" stroke="white" stroke-width="1" opacity="0.35"/>
-          <line x1="12" y1="68" x2="18" y2="62" stroke="white" stroke-width="1" opacity="0.35"/>
-        </svg>
-        <p style="font-family: var(--font-serif); font-size: 1.3rem; font-style: italic; color: #fff; margin-bottom: 0.25rem;">California Institute<br>of Integral Studies</p>
-        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin: 0;">Founded 1968 · San Francisco, CA</p>
-        <hr style="border:none; border-top: 1px solid rgba(255,255,255,0.25); margin: 1.25rem 0;">
-        <p style="font-size: 0.82rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.6;">1453 Mission Street<br>San Francisco, CA 94103<br>415.575.6100</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <p class="footer-org">California Institute of Integral Studies</p>
-      <p class="footer-title">ICP Adjunct Faculty Portal</p>
-      <p class="footer-desc">A resource hub for adjunct professors in the Integral Counseling Psychology program. Content is maintained by the ICP Program Coordinator in collaboration with CIIS Human Resources and Academic Affairs.</p>
-    </div>
-    <div>
-      <p class="footer-links-heading">Portal Pages</p>
-      <ul class="footer-links">
-        <li><a href="hr-pay.html">HR &amp; Getting Paid</a></li>
-        <li><a href="pedagogy.html">Pedagogical Resources</a></li>
-        <li><a href="expectations.html">Attendance &amp; Accommodations</a></li>
-        <li><a href="campus-map.html">Campus Map</a></li>
-        <li><a href="transportation.html">Getting Here</a></li>
-        <li><a href="approach.html">CIIS Approach</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-links-heading">CIIS Links</p>
-      <ul class="footer-links">
-        <li><a href="https://www.ciis.edu" target="_blank" rel="noopener">ciis.edu</a></li>
-        <li><a href="https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology" target="_blank" rel="noopener">ICP Program Page</a></li>
-        <li><a href="https://www.ciis.edu/student-services/disability-services" target="_blank" rel="noopener">Disability Services</a></li>
-        <li><a href="https://library.ciis.edu" target="_blank" rel="noopener">CIIS Library</a></li>
-        <li><a href="https://ciis.instructure.com" target="_blank" rel="noopener">Canvas LMS</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 California Institute of Integral Studies · 1453 Mission St, San Francisco, CA 94103</span>
-    <span>CIIS is located on unceded Ramaytush Ohlone land.</span>
-  </div>
-</footer>
-
+  <div id="sitefooter"></div>
+  <noscript>
+    <p style="max-width:1180px;margin:1rem auto;padding:1rem 1.25rem;">This site uses JavaScript for navigation and role filtering. Core page content is available below; please enable JavaScript for the full experience.</p>
+  </noscript>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

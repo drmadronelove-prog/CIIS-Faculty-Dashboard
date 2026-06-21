@@ -3,370 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The CIIS Approach — ICP Adjunct Portal | CIIS</title>
+  <title>CIIS approach — Teaching in ICP | CIIS</title>
+  <meta name="description" content="The experiential, integral, and socially just commitments that shape teaching in the ICP program at CIIS.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .pillar-card {
-      background: var(--ciis-white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    .pillar-header {
-      padding: 2rem;
-      text-align: center;
-    }
-    .pillar-header.experiential { background: linear-gradient(135deg, #8B1A4A, #A83060); }
-    .pillar-header.integral     { background: linear-gradient(135deg, #A83060, #C4633A); }
-    .pillar-header.social       { background: linear-gradient(135deg, #6B1238, #8B1A4A); }
-    .pillar-icon { font-size: 2.8rem; margin-bottom: 0.5rem; }
-    .pillar-header h2 { color: #fff; font-size: 1.6rem; margin: 0; }
-    .pillar-header .pillar-sub { color: rgba(255,255,255,0.8); font-size: 0.82rem; margin-top: 0.25rem; }
-    .pillar-body { padding: 1.75rem 2rem 2rem; }
-    .pillar-body p { font-size: 0.95rem; }
-
-    .quote-block {
-      border-left: 4px solid var(--ciis-crimson);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      background: var(--ciis-cream-dk);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    }
-    .quote-block p {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--ciis-crimson);
-      margin: 0 0 0.4rem;
-    }
-    .quote-block cite {
-      font-size: 0.78rem;
-      color: var(--ciis-text-lt);
-      font-style: normal;
-    }
-
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 600px) { .value-grid { grid-template-columns: 1fr; } }
-    .value-item {
-      background: var(--ciis-white);
-      border-radius: var(--radius-sm);
-      padding: 1.1rem 1.25rem;
-      border-left: 3px solid var(--ciis-coral);
-    }
-    .value-item h4 { color: var(--ciis-crimson); margin-bottom: 0.25em; font-size: 0.95rem; }
-    .value-item p { font-size: 0.83rem; margin: 0; }
+    .quote-block { border-left:3px solid var(--purple); padding:.75rem 1.25rem; margin-bottom:1rem; background:var(--surface-alt); border-radius:0 var(--r-sm) var(--r-sm) 0; }
+    .quote-block p { font-family:var(--font-head); font-style:italic; font-size:1.1rem; color:var(--ink); margin:0 0 .3rem; }
+    .quote-block cite { font-size:.82rem; color:var(--ink-faint); font-style:normal; }
   </style>
 </head>
-<body>
+<body data-page="approach" data-depth="0" data-title="CIIS Approach">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="topwrap"></div>
 
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="ICP Adjunct Portal Home">
-      <div class="nav-logo-emblem">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" stroke="white" stroke-width="1.5" fill="none"/>
-          <circle cx="20" cy="20" r="12" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
-          <circle cx="20" cy="20" r="6"  stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
-          <circle cx="20" cy="20" r="2"  fill="white" opacity="0.7"/>
-          <line x1="20" y1="2"  x2="20" y2="8"  stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="20" y1="32" x2="20" y2="38" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="2"  y1="20" x2="8"  y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="32" y1="20" x2="38" y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-        </svg>
-      </div>
-      <div class="nav-logo-text">
-        <span class="org">CIIS · ICP Program</span>
-        <span class="portal">Adjunct Faculty Portal</span>
-      </div>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="hr-pay.html">HR &amp; Pay</a></li>
-      <li><a href="pedagogy.html">Pedagogy</a></li>
-      <li><a href="expectations.html">Expectations</a></li>
-      <li><a href="campus-map.html">Campus Map</a></li>
-      <li><a href="transportation.html">Getting Here</a></li>
-      <li><a href="approach.html" class="active">CIIS Approach</a></li>
-    </ul>
-  </div>
-</nav>
+  <div class="shell">
+    <div id="sidebar"></div>
 
-<header class="page-hero">
-  <p class="breadcrumb"><a href="index.html">Home</a> › The CIIS Approach</p>
-  <h1>The CIIS Approach to Learning</h1>
-  <p class="subtitle">Experiential. Integral. Socially just. These three commitments shape everything we do in the ICP program — from how we structure a class session to how we understand the therapeutic relationship.</p>
-</header>
+    <main id="main" class="content">
+      <nav id="breadcrumb" class="breadcrumb"></nav>
 
-<main class="page-body">
+      <h1>The CIIS approach to learning</h1>
+      <p class="lead">Experiential, integral, and socially just — three commitments that shape everything we do in the ICP program, from how we structure a class session to how we understand the therapeutic relationship.</p>
 
-  <!-- ===== INTRO ===== -->
-  <section class="info-box" style="text-align:center; padding: 2.5rem 2rem;">
-    <div class="ciis-emblem-sm">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="white" stroke-width="2" fill="none"/>
-        <circle cx="20" cy="20" r="11" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
-        <circle cx="20" cy="20" r="5"  stroke="white" stroke-width="1" fill="none" opacity="0.5"/>
-        <circle cx="20" cy="20" r="2"  fill="white" opacity="0.9"/>
-      </svg>
-    </div>
-    <h2 style="margin-bottom:0.5em;">Three Pillars of CIIS Pedagogy</h2>
-    <p style="max-width:640px; margin: 0 auto;">Since its founding in 1968, CIIS has been guided by the conviction that education must transform not only the intellect but the whole person — body, mind, spirit, and community. The ICP program carries this mission forward in the training of future counselors and therapists.</p>
-  </section>
+      <!-- ===== THREE PILLARS ===== -->
+      <section class="section" aria-labelledby="pillars-h">
+        <h2 id="pillars-h">Three pillars of CIIS pedagogy</h2>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3><i class="ti ti-ripple" aria-hidden="true"></i> Experiential learning</h3>
+            <p>Knowledge is not simply transmitted — it is lived. The classroom becomes a site of practice: relational, somatic, and reflective. Students inhabit the roles of both clinician and client in training contexts, which asks faculty to create brave, boundaried containers for inquiry.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-atom" aria-hidden="true"></i> Integral framework</h3>
+            <p>The integral aspiration honors multiple dimensions of knowing — psychological, spiritual, somatic, cultural, and systemic. Faculty and students hold theory lightly and stay open to complexity, contradiction, and mystery.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-scale" aria-hidden="true"></i> Social justice</h3>
+            <p>Personal healing cannot be separated from social and political context. Social justice is woven into case conceptualization, theoretical frameworks, supervision, and classroom culture — not added on.</p>
+          </div>
+        </div>
+      </section>
 
-  <hr class="section-divider">
+      <hr class="divider">
 
-  <!-- ===== THREE PILLARS ===== -->
-  <div class="three-col" style="margin-bottom:3rem;">
+      <!-- ===== QUOTES ===== -->
+      <section class="section" aria-labelledby="voices-h">
+        <h2 id="voices-h">Voices from the CIIS tradition</h2>
+        <p>Offered as orientation, not dogma.</p>
+        <div class="quote-block">
+          <p>"Intelligence plus character — that is the goal of true education."</p>
+          <cite>— Martin Luther King Jr.</cite>
+        </div>
+        <div class="quote-block">
+          <p>"Education is not the filling of a pail, but the lighting of a fire."</p>
+          <cite>— often attributed to W.B. Yeats</cite>
+        </div>
+        <div class="quote-block">
+          <p>"The master's tools will never dismantle the master's house."</p>
+          <cite>— Audre Lorde, <em>Sister Outsider</em> (1984)</cite>
+        </div>
+      </section>
 
-    <!-- Experiential -->
-    <div class="pillar-card">
-      <div class="pillar-header experiential">
-        <div class="pillar-icon">🌊</div>
-        <h2>Experiential Learning</h2>
-        <p class="pillar-sub">Learning through embodied presence</p>
-      </div>
-      <div class="pillar-body">
-        <p>At CIIS, knowledge is not simply transmitted — it is <em>lived</em>. Experiential learning means that the classroom itself becomes a site of practice: relational, somatic, and reflective.</p>
-        <p>ICP students are not only learning about therapeutic modalities — they are practicing them with one another, inhabiting the role of both clinician and client in training contexts. This demands that adjunct faculty create brave, boundaried, and generative containers for personal and collective inquiry.</p>
-        <h4>In Practice</h4>
-        <ul>
-          <li>Opening and closing circles that acknowledge the relational field</li>
-          <li>Embodiment practices, check-ins, and somatic awareness exercises</li>
-          <li>Process-oriented small group work and dyads</li>
-          <li>Regular reflection on the personal impact of clinical material</li>
-          <li>Attention to what is happening <em>in the room</em> as pedagogical data</li>
-        </ul>
-      </div>
-    </div>
+      <hr class="divider">
 
-    <!-- Integral -->
-    <div class="pillar-card">
-      <div class="pillar-header integral">
-        <div class="pillar-icon">🌀</div>
-        <h2>Integral Framework</h2>
-        <p class="pillar-sub">Honoring multiple ways of knowing</p>
-      </div>
-      <div class="pillar-body">
-        <p>The "integral" in CIIS refers to the aspiration to honor <em>multiple dimensions of reality and knowing</em>: psychological, spiritual, somatic, cultural, and systemic. No single theoretical framework captures the full truth of human experience.</p>
-        <p>Drawn in part from Ken Wilber's Integral Theory and earlier traditions of integral thought (Sri Aurobindo, Jean Gebser), the CIIS approach asks students and teachers alike to hold theory lightly and remain open to complexity, contradiction, and mystery.</p>
-        <h4>In Practice</h4>
-        <ul>
-          <li>Weaving together psychodynamic, humanistic, somatic, and transpersonal perspectives</li>
-          <li>Valuing indigenous, contemplative, and non-Western epistemologies alongside Western science</li>
-          <li>Inviting students to examine their own theoretical biases and defaults</li>
-          <li>Emphasizing the intersubjective and relational dimensions of healing</li>
-          <li>Engaging with the spiritual and existential dimensions of the therapeutic encounter</li>
-        </ul>
-      </div>
-    </div>
+      <!-- ===== LEARNING CONTAINER ===== -->
+      <section class="section" aria-labelledby="container-h">
+        <h2 id="container-h">Creating the learning container</h2>
+        <p>The classroom is a relational container within which students practice becoming therapists. That places particular responsibility on faculty to attend to the quality of the relational field, not just the content.</p>
+        <div class="grid-2">
+          <div class="info-card"><h3>Safety &amp; challenge</h3><p>Enough safety to take risks, and enough challenge to grow. Faculty attend to this balance actively rather than assuming it.</p></div>
+          <div class="info-card"><h3>Process over product</h3><p>How the class unfolds — the relational dynamics and unexpected feelings — is as significant as the planned content.</p></div>
+          <div class="info-card"><h3>Land acknowledgment</h3><p>CIIS is on unceded Ramaytush Ohlone land. Many faculty open courses with a land acknowledgment and invite reflection on what it means for healing work.</p></div>
+          <div class="info-card"><h3>Community agreements</h3><p>Creating explicit agreements with students at the start of the semester — confidentiality, respect, and stepping up / stepping back — is common ICP practice.</p></div>
+        </div>
+      </section>
 
-    <!-- Social Justice -->
-    <div class="pillar-card">
-      <div class="pillar-header social">
-        <div class="pillar-icon">✊</div>
-        <h2>Social Justice</h2>
-        <p class="pillar-sub">Healing in context and community</p>
-      </div>
-      <div class="pillar-body">
-        <p>CIIS has long held that personal healing cannot be fully understood apart from its social and political context. Therapy takes place in a world shaped by racism, colonialism, heteropatriarchy, ableism, and economic injustice — and therapists must be equipped to work skillfully with these realities.</p>
-        <p>Social justice is not an add-on to the ICP curriculum. It is woven into case conceptualization, theoretical frameworks, clinical supervision, and the classroom culture itself.</p>
-        <h4>In Practice</h4>
-        <ul>
-          <li>Centering the voices and experiences of marginalized communities in readings and case discussions</li>
-          <li>Ongoing faculty and student reflection on power, privilege, and positionality</li>
-          <li>Critical examination of the history of psychiatry and the DSM</li>
-          <li>Cultural humility as a lifelong practice, not a competency to be achieved</li>
-          <li>Attention to the sociopolitical contexts that shape client presenting concerns</li>
-        </ul>
-      </div>
-    </div>
+      <hr class="divider">
 
+      <!-- ===== PROFESSIONAL IDENTITY ===== -->
+      <section class="section" aria-labelledby="identity-h">
+        <h2 id="identity-h">Professional identity development</h2>
+        <p>A central goal of ICP training is developing students' professional therapeutic identity — their sense of themselves as ethical, competent, and culturally humble practitioners.</p>
+        <div class="callout">
+          <h3>The parallel process</h3>
+          <p style="margin:0;">Just as therapists are shaped by their supervisors, students are shaped by their relationship with faculty. How we hold discomfort, repair ruptures, acknowledge power, and remain curious is itself a model of therapeutic presence.</p>
+        </div>
+      </section>
+
+    </main>
   </div>
 
-  <!-- ===== QUOTES ===== -->
-  <section class="info-box">
-    <h2>Voices from the CIIS Tradition</h2>
-    <p>These quotations reflect the intellectual and spiritual currents that run through ICP pedagogy. They are offered as orientation, not dogma.</p>
-
-    <div class="quote-block">
-      <p>"The function of education, therefore, is to teach one to think intensively and to think critically. Intelligence plus character — that is the goal of true education."</p>
-      <cite>— Martin Luther King Jr.</cite>
-    </div>
-
-    <div class="quote-block">
-      <p>"The greatest revolution of our generation is the discovery that human beings, by changing the inner attitudes of their minds, can change the outer aspects of their lives."</p>
-      <cite>— William James · Cited in the CIIS transpersonal tradition</cite>
-    </div>
-
-    <div class="quote-block">
-      <p>"Education is not the filling of a pail, but the lighting of a fire."</p>
-      <cite>— Often attributed to W.B. Yeats</cite>
-    </div>
-
-    <div class="quote-block">
-      <p>"The master's tools will never dismantle the master's house."</p>
-      <cite>— Audre Lorde · <em>Sister Outsider</em> (1984)</cite>
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- ===== CLASSROOM CULTURE ===== -->
-  <section class="info-box">
-    <h2>Creating the Learning Container</h2>
-    <p>In ICP, the classroom is not just a place where information is conveyed — it is a <em>relational container</em> within which students practice becoming therapists. This places particular responsibility on adjunct faculty to attend to the quality of the relational field, not just the content.</p>
-
-    <div class="value-grid">
-      <div class="value-item">
-        <h4>Safety &amp; Challenge</h4>
-        <p>Effective learning requires enough safety to take risks and enough challenge to grow. ICP faculty attend to this balance actively, rather than assuming it.</p>
-      </div>
-      <div class="value-item">
-        <h4>The Use of Self</h4>
-        <p>ICP faculty are encouraged to model appropriate self-disclosure, emotional presence, and reflexivity — demonstrating the integration expected of students.</p>
-      </div>
-      <div class="value-item">
-        <h4>Process Over Product</h4>
-        <p>How the class unfolds — the relational dynamics, the disruptions, the unexpected feelings — is as pedagogically significant as the planned content.</p>
-      </div>
-      <div class="value-item">
-        <h4>Land Acknowledgment</h4>
-        <p>CIIS is located on unceded Ramaytush Ohlone land. Many ICP faculty open their courses with a land acknowledgment and invite reflection on what this means for healing work.</p>
-      </div>
-      <div class="value-item">
-        <h4>Community Agreements</h4>
-        <p>Creating explicit community agreements with students at the start of the semester is a common ICP practice. Agreements might cover confidentiality, respect, "oops/ouch," and stepping up/stepping back.</p>
-      </div>
-      <div class="value-item">
-        <h4>Somatic Attunement</h4>
-        <p>Reading the somatic field of the classroom — noticing collective energy, tension, or aliveness — is a skill ICP faculty develop alongside their students.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- ===== PROFESSIONAL IDENTITY ===== -->
-  <section class="info-box">
-    <h2>Professional Identity Development</h2>
-    <p>A central goal of ICP training is the development of students' <strong>professional therapeutic identity</strong> — their sense of themselves as ethical, competent, and culturally humble practitioners. Adjunct faculty contribute to this development not only through course content but through how they show up.</p>
-
-    <div class="highlight-box">
-      <h3>The Parallel Process</h3>
-      <p>Just as therapists are shaped by their relationship with supervisors, ICP students are shaped by their relationship with faculty. The quality of how we teach — how we hold discomfort, repair ruptures, acknowledge power, and remain curious — is itself a model of therapeutic presence. This is the parallel process in action.</p>
-    </div>
-
-    <div class="two-col" style="margin-top:1.5rem;">
-      <div>
-        <h3>What Students Are Developing</h3>
-        <ul>
-          <li>A coherent and flexible theoretical orientation</li>
-          <li>Capacity for empathic attunement across difference</li>
-          <li>Ethical reasoning under complexity and ambiguity</li>
-          <li>Awareness of countertransference and personal triggers</li>
-          <li>Cultural humility and antiracist clinical competence</li>
-          <li>Somatic awareness in the therapeutic relationship</li>
-          <li>Capacity to work with the spiritual and transpersonal</li>
-        </ul>
-      </div>
-      <div>
-        <h3>What Faculty Offer</h3>
-        <ul>
-          <li>Expertise rooted in lived clinical experience</li>
-          <li>Modeling of ongoing self-reflection and learning</li>
-          <li>Honest engagement with the limits of theoretical frameworks</li>
-          <li>Willingness to be moved by student questions and challenges</li>
-          <li>Consistency, clarity, and warmth in the teaching relationship</li>
-          <li>A commitment to the whole student — not just the clinician-in-training</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- ===== FURTHER READING ===== -->
-  <section class="info-box">
-    <h2>Further Exploration</h2>
-    <p>For those who want to deepen their understanding of CIIS's educational philosophy, the following areas of inquiry are suggested. Specific texts can be found in the CIIS Library (Floor 2) and through the digital database system.</p>
-    <div class="three-col">
-      <div class="card">
-        <h3>Integral &amp; Transpersonal Education</h3>
-        <ul>
-          <li>Jorge Ferrer — Participatory spirituality and enactivism in education</li>
-          <li>Ken Wilber — Integral Theory overview</li>
-          <li>CIIS mission documents and program accreditation materials</li>
-        </ul>
-      </div>
-      <div class="card coral-border">
-        <h3>Experiential &amp; Transformative Learning</h3>
-        <ul>
-          <li>David Kolb — Experiential Learning Cycle</li>
-          <li>Jack Mezirow — Transformative Learning Theory</li>
-          <li>bell hooks — <em>Teaching to Transgress</em></li>
-          <li>Parker Palmer — <em>The Courage to Teach</em></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Social Justice in Clinical Training</h3>
-        <ul>
-          <li>Beverly Daniel Tatum — racial identity development</li>
-          <li>Derald Wing Sue — microaggressions in clinical contexts</li>
-          <li>Lillian Comas-Díaz — multicultural psychotherapy</li>
-          <li>CIIS Social Justice Institute resources</li>
-        </ul>
-      </div>
-    </div>
-    <div class="placeholder-note" style="margin-top:1.5rem;">A curated CIIS ICP faculty reading list with library links will be developed by the program. Contact the ICP Program Coordinator for current recommendations.</div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <p class="footer-org">California Institute of Integral Studies</p>
-      <p class="footer-title">ICP Adjunct Faculty Portal</p>
-      <p class="footer-desc">An introduction to CIIS's approach to experiential, integral, and socially just education — the philosophical foundation of the ICP program.</p>
-    </div>
-    <div>
-      <p class="footer-links-heading">Portal Pages</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="hr-pay.html">HR &amp; Getting Paid</a></li>
-        <li><a href="pedagogy.html">Pedagogical Resources</a></li>
-        <li><a href="expectations.html">Attendance &amp; Accommodations</a></li>
-        <li><a href="campus-map.html">Campus Map</a></li>
-        <li><a href="transportation.html">Getting Here</a></li>
-        <li><a href="approach.html">CIIS Approach</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-links-heading">CIIS Links</p>
-      <ul class="footer-links">
-        <li><a href="https://www.ciis.edu" target="_blank" rel="noopener">ciis.edu</a></li>
-        <li><a href="https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology" target="_blank" rel="noopener">ICP Program</a></li>
-        <li><a href="https://library.ciis.edu" target="_blank" rel="noopener">CIIS Library</a></li>
-        <li><a href="https://ciis.instructure.com" target="_blank" rel="noopener">Canvas LMS</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 California Institute of Integral Studies · 1453 Mission St, San Francisco, CA 94103</span>
-    <span>CIIS is located on unceded Ramaytush Ohlone land.</span>
-  </div>
-</footer>
-
+  <div id="sitefooter"></div>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

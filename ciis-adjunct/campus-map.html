@@ -3,478 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Map — ICP Adjunct Portal | CIIS</title>
+  <title>Campus map — Teaching in ICP | CIIS</title>
+  <meta name="description" content="Floor-by-floor guide to 1453 Mission Street, nearby coffee and food, and the facilities contact.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    /* Elevator diagram */
-    .building-diagram {
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 4px;
-      background: var(--ciis-cream-dk);
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      box-shadow: var(--shadow-sm);
+    .floor { display:flex; gap:1.25rem; align-items:flex-start; }
+    .floor-badge {
+      flex-shrink:0; width:3rem; height:3rem; border-radius:var(--r-sm);
+      background:var(--purple); color:#fff; font-family:var(--font-head);
+      font-size:1.4rem; font-weight:700; display:flex; align-items:center; justify-content:center;
     }
-    .building-floor-strip {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--ciis-white);
-      border-radius: var(--radius-sm);
-      padding: 0.65rem 1rem;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .building-floor-strip:hover,
-    .building-floor-strip.active {
-      border-color: var(--ciis-crimson);
-      background: #FDF5F8;
-    }
-    .floor-num-badge {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: var(--ciis-crimson);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .floor-strip-info { flex: 1; }
-    .floor-strip-info strong { font-size: 0.9rem; color: var(--ciis-text); display: block; }
-    .floor-strip-info span { font-size: 0.76rem; color: var(--ciis-text-lt); }
-    .floor-strip-arrow { color: var(--ciis-crimson); font-size: 0.8rem; opacity: 0; transition: opacity 0.2s; }
-    .building-floor-strip:hover .floor-strip-arrow,
-    .building-floor-strip.active .floor-strip-arrow { opacity: 1; }
+    .floor-body { flex:1; min-width:0; }
+    @media (max-width:520px){ .floor{ flex-direction:column; } }
   </style>
 </head>
-<body>
+<body data-page="campus-map" data-depth="0" data-title="Campus Map">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="topwrap"></div>
 
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="ICP Adjunct Portal Home">
-      <div class="nav-logo-emblem">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" stroke="white" stroke-width="1.5" fill="none"/>
-          <circle cx="20" cy="20" r="12" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
-          <circle cx="20" cy="20" r="6"  stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
-          <circle cx="20" cy="20" r="2"  fill="white" opacity="0.7"/>
-          <line x1="20" y1="2"  x2="20" y2="8"  stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="20" y1="32" x2="20" y2="38" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="2"  y1="20" x2="8"  y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-          <line x1="32" y1="20" x2="38" y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
-        </svg>
+  <div class="shell">
+    <div id="sidebar"></div>
+
+    <main id="main" class="content">
+      <nav id="breadcrumb" class="breadcrumb"></nav>
+
+      <h1>Campus map</h1>
+      <p class="lead">1453 Mission Street, San Francisco — five floors, each with its own community and resources.</p>
+
+      <img class="page-banner" src="assets/images/nature-banner.svg" alt="Flat illustration of a calm natural landscape with rolling hills, trees, and a rising sun in deep purple tones.">
+
+      <div class="notice">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        <span><strong>Address:</strong> 1453 Mission Street, San Francisco, CA 94103. Elevators and stairwells connect all five floors; the building is ADA accessible.</span>
       </div>
-      <div class="nav-logo-text">
-        <span class="org">CIIS · ICP Program</span>
-        <span class="portal">Adjunct Faculty Portal</span>
-      </div>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="hr-pay.html">HR &amp; Pay</a></li>
-      <li><a href="pedagogy.html">Pedagogy</a></li>
-      <li><a href="expectations.html">Expectations</a></li>
-      <li><a href="campus-map.html" class="active">Campus Map</a></li>
-      <li><a href="transportation.html">Getting Here</a></li>
-      <li><a href="approach.html">CIIS Approach</a></li>
-    </ul>
+
+      <!-- ===== FLOORS (stacked) ===== -->
+      <section class="section" aria-labelledby="floors-h">
+        <h2 id="floors-h">Floor by floor</h2>
+
+        <div class="surface">
+          <div class="floor">
+            <div class="floor-badge">1</div>
+            <div class="floor-body">
+              <h3>Ground floor — entry, lounge &amp; café</h3>
+              <ul class="ref-list">
+                <li><i class="ti ti-armchair" aria-hidden="true"></i><span><strong>Student &amp; faculty lounge</strong><span>A welcoming common area to relax, meet, and debrief between classes.</span></span></li>
+                <li><i class="ti ti-coffee" aria-hidden="true"></i><span><strong>CIIS café</strong><span>Coffee, tea, pastries, and light snacks on weekdays; hours vary by semester.</span></span></li>
+                <li><i class="ti ti-door-enter" aria-hidden="true"></i><span><strong>Main lobby &amp; reception</strong><span>Visitor check-in, campus information, and mail/package receiving.</span></span></li>
+                <li><i class="ti ti-clipboard-list" aria-hidden="true"></i><span><strong>Community bulletin board</strong><span>Announcements, events, and ICP program updates.</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="surface">
+          <div class="floor">
+            <div class="floor-badge">2</div>
+            <div class="floor-body">
+              <h3>Second floor — library &amp; learning</h3>
+              <ul class="ref-list">
+                <li><i class="ti ti-books" aria-hidden="true"></i><span><strong>CIIS Library</strong><span>Physical collections, a staffed reference desk, and quiet study areas.</span></span></li>
+                <li><i class="ti ti-device-desktop" aria-hidden="true"></i><span><strong>Computer workstations</strong><span>Access to all CIIS databases, plus printing and scanning.</span></span></li>
+                <li><i class="ti ti-bookmark" aria-hidden="true"></i><span><strong>Course reserves</strong><span>Required readings placed on reserve by faculty — submit requests three weeks ahead.</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="surface">
+          <div class="floor">
+            <div class="floor-badge">3</div>
+            <div class="floor-body">
+              <h3>Third floor — gathering &amp; nourishment</h3>
+              <ul class="ref-list">
+                <li><i class="ti ti-yoga" aria-hidden="true"></i><span><strong>Namaste Hall</strong><span>The primary large event and gathering space for assemblies, lectures, and somatic workshops.</span></span></li>
+                <li><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i><span><strong>Student cafeteria</strong><span>Tables, microwaves, a refrigerator, and vending machines.</span></span></li>
+                <li><i class="ti ti-flower" aria-hidden="true"></i><span><strong>Meditation &amp; practice room</strong><span>A quiet space for mindfulness and brief somatic practice.</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="surface">
+          <div class="floor">
+            <div class="floor-badge">4</div>
+            <div class="floor-body">
+              <h3>Fourth floor — faculty space</h3>
+              <ul class="ref-list">
+                <li><i class="ti ti-armchair" aria-hidden="true"></i><span><strong>Faculty lounge</strong><span>Seating, a small kitchen with coffee and tea, workstations, and a printer.</span></span></li>
+                <li><i class="ti ti-accessible" aria-hidden="true"></i><span><strong>Restrooms</strong><span>Accessible, all-gender restrooms.</span></span></li>
+                <li><i class="ti ti-inbox" aria-hidden="true"></i><span><strong>Faculty mailboxes</strong><span>Ask the program coordinator about mailbox access for adjunct instructors.</span></span></li>
+                <li><i class="ti ti-users" aria-hidden="true"></i><span><strong>Faculty meeting room</strong><span>A small conference room for consultation and student meetings — reserve through the coordinator.</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="surface">
+          <div class="floor">
+            <div class="floor-badge">5</div>
+            <div class="floor-body">
+              <h3>Fifth floor — administration</h3>
+              <ul class="ref-list">
+                <li><i class="ti ti-users-group" aria-hidden="true"></i><span><strong>Human resources</strong><span>Contracts, payroll setup, direct deposit, and benefits. Monday–Friday, 9am–5pm.</span></span></li>
+                <li><i class="ti ti-tools" aria-hidden="true"></i><span><strong>Operations &amp; facilities</strong><span>Room reservations, facilities requests, and maintenance.</span></span></li>
+                <li><i class="ti ti-businessplan" aria-hidden="true"></i><span><strong>Finance &amp; business office</strong><span>Institutional finances and expense reimbursements.</span></span></li>
+                <li><i class="ti ti-building-bank" aria-hidden="true"></i><span><strong>Academic affairs / provost's office</strong><span>Academic policy, faculty governance, and curriculum.</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- ===== FOOD AND COFFEE (NEW) ===== -->
+      <section class="section" aria-labelledby="food-h">
+        <h2 id="food-h">Food and coffee near campus</h2>
+        <p>A few nearby options around 1453 Mission St, in the Civic Center / SoMa area. Hours and addresses change — verify current details on Google Maps before you go.</p>
+
+        <h3 style="margin-top:1rem;">Coffee &amp; cafés</h3>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3><i class="ti ti-coffee" aria-hidden="true"></i> Sightglass Coffee</h3>
+            <p>270 7th St (at Folsom), about an 8-minute walk. SF roaster with pour-overs and pastries.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-leaf" aria-hidden="true"></i> Ananda Fuara</h3>
+            <p>1298 Market St (at 9th), about a 6-minute walk. Beloved vegetarian café known for its neatloaf sandwich.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-coffee" aria-hidden="true"></i> Blue Bottle Coffee</h3>
+            <p>66 Mint Plaza (off 5th &amp; Mission), about a 12-minute walk. Specialty espresso and drip.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:1.25rem;">Lunch &amp; dinner</h3>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3><i class="ti ti-soup" aria-hidden="true"></i> Tu Lan</h3>
+            <p>8 Sixth St, about a 10-minute walk. Historic, no-frills Vietnamese spot.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i> Zuni Café</h3>
+            <p>1658 Market St, about a 9-minute walk. San Francisco classic — roast chicken and Caesar salad.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i> Brenda's French Soul Food</h3>
+            <p>652 Polk St, about a 13-minute walk. New Orleans-style cooking and beignets.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-basket" aria-hidden="true"></i> Heart of the City Farmers Market</h3>
+            <p>UN Plaza (Market &amp; 7th), about a 7-minute walk. Local produce and prepared food on Wednesdays and Sundays.</p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-salad" aria-hidden="true"></i> Little Gem</h3>
+            <p>400 Grove St (Hayes Valley), about a 10-minute walk. Bright, health-minded bowls and salads.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- ===== FACILITIES CONTACT ===== -->
+      <section class="section" aria-labelledby="fac-h">
+        <h2 id="fac-h">Facilities contact</h2>
+        <div class="contact-card">
+          <div class="ct-head"><i class="ti ti-building" aria-hidden="true"></i><h3>Facilities &amp; building operations</h3></div>
+          <p class="ct-primary"><a href="mailto:FacilitiesandBusinessOps@ciis.edu">FacilitiesandBusinessOps@ciis.edu</a></p>
+          <p>For building access, room setup, furniture, supplies, or equipment requests.</p>
+        </div>
+      </section>
+
+    </main>
   </div>
-</nav>
 
-<header class="page-hero">
-  <p class="breadcrumb"><a href="index.html">Home</a> › Campus Map</p>
-  <h1>Campus Map</h1>
-  <p class="subtitle">1453 Mission Street, San Francisco · Five floors, each with its own community and resources. Click a floor to explore.</p>
-</header>
-
-<main class="page-body">
-
-  <div class="notice-box">
-    📍 <strong>Address:</strong> 1453 Mission Street, San Francisco, CA 94103 &nbsp;·&nbsp; Elevators and stairwells connect all five floors. The building is ADA accessible.
-  </div>
-
-  <div style="display:grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: start;">
-
-    <!-- ===== BUILDING DIAGRAM (sidebar) ===== -->
-    <div>
-      <h3 style="margin-bottom:1rem; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ciis-text-lt);">Select a Floor</h3>
-      <div class="building-diagram" role="list" aria-label="Building floors">
-
-        <div class="building-floor-strip active" role="listitem" onclick="showFloor(1, this)" aria-label="Floor 1">
-          <div class="floor-num-badge">1</div>
-          <div class="floor-strip-info">
-            <strong>Ground Floor</strong>
-            <span>Lounge · Café · Entry</span>
-          </div>
-          <span class="floor-strip-arrow">→</span>
-        </div>
-
-        <div class="building-floor-strip" role="listitem" onclick="showFloor(2, this)" aria-label="Floor 2">
-          <div class="floor-num-badge">2</div>
-          <div class="floor-strip-info">
-            <strong>Second Floor</strong>
-            <span>Library · Study Spaces</span>
-          </div>
-          <span class="floor-strip-arrow">→</span>
-        </div>
-
-        <div class="building-floor-strip" role="listitem" onclick="showFloor(3, this)" aria-label="Floor 3">
-          <div class="floor-num-badge">3</div>
-          <div class="floor-strip-info">
-            <strong>Third Floor</strong>
-            <span>Namaste Hall · Cafeteria</span>
-          </div>
-          <span class="floor-strip-arrow">→</span>
-        </div>
-
-        <div class="building-floor-strip" role="listitem" onclick="showFloor(4, this)" aria-label="Floor 4">
-          <div class="floor-num-badge">4</div>
-          <div class="floor-strip-info">
-            <strong>Fourth Floor</strong>
-            <span>Faculty Lounge · Restrooms</span>
-          </div>
-          <span class="floor-strip-arrow">→</span>
-        </div>
-
-        <div class="building-floor-strip" role="listitem" onclick="showFloor(5, this)" aria-label="Floor 5">
-          <div class="floor-num-badge">5</div>
-          <div class="floor-strip-info">
-            <strong>Fifth Floor</strong>
-            <span>HR · Operations · Admin</span>
-          </div>
-          <span class="floor-strip-arrow">→</span>
-        </div>
-
-      </div>
-
-      <div style="margin-top:1.5rem; background:var(--ciis-white); border-radius:var(--radius-md); padding:1rem; box-shadow:var(--shadow-sm); font-size:0.82rem; color:var(--ciis-text-lt);">
-        <strong style="display:block; margin-bottom:0.4rem; color:var(--ciis-text);">♿ Accessibility</strong>
-        Elevators are located near the main lobby. All floors are accessible. All-gender restrooms are available. Contact Student Services for specific accessibility needs.
-      </div>
-    </div>
-
-    <!-- ===== FLOOR DETAIL PANELS ===== -->
-    <div>
-
-      <!-- FLOOR 1 -->
-      <div class="floor-card visible" id="floor-1" role="region" aria-label="Floor 1 details">
-        <div class="floor-label">
-          <span class="floor-number">1</span>
-          <h2>Ground Floor</h2>
-          <span class="floor-tag">Entry Level</span>
-        </div>
-        <div class="floor-content">
-          <h3>Welcome to CIIS</h3>
-          <p>The ground floor is where community life begins — arrive, decompress, grab a coffee, and connect with colleagues before class.</p>
-          <ul class="space-list">
-            <li>
-              <span class="space-icon">🛋️</span>
-              <div class="space-info">
-                <strong>Student &amp; Faculty Lounge</strong>
-                <span>A welcoming common area for faculty and students to relax, meet, and debrief between classes. Comfortable seating, natural light, and community bulletin boards with program news and events.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">☕</span>
-              <div class="space-info">
-                <strong>CIIS Café</strong>
-                <span>Coffee, tea, pastries, and light snacks available on weekdays. Hours vary by semester — check posted signage. A great spot for informal student-faculty conversations.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🚪</span>
-              <div class="space-info">
-                <strong>Main Lobby &amp; Reception</strong>
-                <span>Building reception, visitor check-in, and campus information desk. Mail and packages are received here.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">📌</span>
-              <div class="space-info">
-                <strong>Community Bulletin Board</strong>
-                <span>Announcements, events, student resources, and ICP program updates are posted here throughout the semester.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- FLOOR 2 -->
-      <div class="floor-card" id="floor-2" role="region" aria-label="Floor 2 details">
-        <div class="floor-label">
-          <span class="floor-number">2</span>
-          <h2>Second Floor</h2>
-          <span class="floor-tag">Library &amp; Learning</span>
-        </div>
-        <div class="floor-content">
-          <h3>Knowledge &amp; Research</h3>
-          <p>The heart of CIIS academic life, the library houses specialized collections in psychology, philosophy, religion, somatic studies, and social justice.</p>
-          <ul class="space-list">
-            <li>
-              <span class="space-icon">📚</span>
-              <div class="space-info">
-                <strong>CIIS Library</strong>
-                <span>Full library with physical collections, reference desk staffed by librarians, and quiet study areas. Specializes in transpersonal psychology, depth psychology, world philosophies, and somatic studies. Open to all faculty and enrolled students.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🖥️</span>
-              <div class="space-info">
-                <strong>Computer Workstations</strong>
-                <span>Library computers with access to all CIIS digital databases, printing, and scanning services.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🤫</span>
-              <div class="space-info">
-                <strong>Quiet Study Rooms</strong>
-                <span>Individual and small-group study rooms available for student use. Check availability at the reference desk.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">📖</span>
-              <div class="space-info">
-                <strong>Course Reserves</strong>
-                <span>Required course readings placed on reserve by faculty. Submit reserve requests at least 3 weeks in advance through the library.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="placeholder-note">Library hours and reference desk contact to be added here.</div>
-        </div>
-      </div>
-
-      <!-- FLOOR 3 -->
-      <div class="floor-card" id="floor-3" role="region" aria-label="Floor 3 details">
-        <div class="floor-label">
-          <span class="floor-number">3</span>
-          <h2>Third Floor</h2>
-          <span class="floor-tag">Gathering &amp; Nourishment</span>
-        </div>
-        <div class="floor-content">
-          <h3>Community &amp; Practice Space</h3>
-          <p>The third floor hosts the largest gathering and event spaces in the building, as well as student dining.</p>
-          <ul class="space-list">
-            <li>
-              <span class="space-icon">🙏</span>
-              <div class="space-info">
-                <strong>Namaste Hall</strong>
-                <span>CIIS's primary large event and gathering space. Used for all-school assemblies, guest lectures, somatic workshops, movement practices, and ceremonial gatherings. Flexible floor plan with removable furniture. Shoes typically removed at the entrance.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🍱</span>
-              <div class="space-info">
-                <strong>Student Cafeteria</strong>
-                <span>The main student dining area with tables, chairs, and access to microwaves and a refrigerator. Students often gather here between classes. Vending machines available. Cafeteria hours follow the academic calendar.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🧘</span>
-              <div class="space-info">
-                <strong>Meditation &amp; Practice Room</strong>
-                <span>A designated quiet space for mindfulness, meditation, and brief somatic practice. Available to faculty and students throughout the day.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="placeholder-note">Namaste Hall booking process and cafeteria hours to be added here.</div>
-        </div>
-      </div>
-
-      <!-- FLOOR 4 -->
-      <div class="floor-card" id="floor-4" role="region" aria-label="Floor 4 details">
-        <div class="floor-label">
-          <span class="floor-number">4</span>
-          <h2>Fourth Floor</h2>
-          <span class="floor-tag">Faculty Space</span>
-        </div>
-        <div class="floor-content">
-          <h3>Faculty Resources</h3>
-          <p>The fourth floor is primarily faculty space — a place to decompress, prep, and connect with colleagues away from the classroom.</p>
-          <ul class="space-list">
-            <li>
-              <span class="space-icon">🛋️</span>
-              <div class="space-info">
-                <strong>Faculty Lounge</strong>
-                <span>A dedicated rest and preparation space for faculty. Features comfortable seating, a small kitchen area with coffee and tea, workstations, and a printer. A great place to arrive early, review your notes, or debrief with colleagues after a session.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🚻</span>
-              <div class="space-info">
-                <strong>Restrooms</strong>
-                <span>Accessible, all-gender restrooms are located on this floor. Additional restrooms are available on other floors — check floor signage for locations.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">📋</span>
-              <div class="space-info">
-                <strong>Faculty Mailboxes</strong>
-                <span>Adjunct faculty may be assigned a mailbox here. Check with the Program Coordinator about mailbox access for adjunct instructors.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">💬</span>
-              <div class="space-info">
-                <strong>Faculty Meeting Room</strong>
-                <span>Small conference room available for faculty consultation, student meetings, and peer consultation. Contact the Program Coordinator to reserve.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- FLOOR 5 -->
-      <div class="floor-card" id="floor-5" role="region" aria-label="Floor 5 details">
-        <div class="floor-label">
-          <span class="floor-number">5</span>
-          <h2>Fifth Floor</h2>
-          <span class="floor-tag">Administration</span>
-        </div>
-        <div class="floor-content">
-          <h3>Administrative Hub</h3>
-          <p>The fifth floor is the administrative center of CIIS — where payroll gets processed, contracts are signed, and institutional operations are coordinated.</p>
-          <ul class="space-list">
-            <li>
-              <span class="space-icon">👥</span>
-              <div class="space-info">
-                <strong>Human Resources</strong>
-                <span>The HR office handles all adjunct faculty contracts, payroll setup, direct deposit, benefits enrollment, and personnel matters. Open Monday–Friday, 9am–5pm. Come here to complete your onboarding paperwork.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">⚙️</span>
-              <div class="space-info">
-                <strong>Operations &amp; Facilities</strong>
-                <span>CIIS building operations, room reservations, facilities requests, and maintenance issues are managed here. If you have a facilities concern in your classroom, contact Operations.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">📊</span>
-              <div class="space-info">
-                <strong>Finance &amp; Business Office</strong>
-                <span>Handles institutional finances, reimbursements, and budget matters. Contact here for expense reimbursement requests.</span>
-              </div>
-            </li>
-            <li>
-              <span class="space-icon">🏛️</span>
-              <div class="space-info">
-                <strong>Academic Affairs / Provost's Office</strong>
-                <span>Oversees academic policy, faculty governance, and curriculum. Escalate unresolved academic concerns to this office through your Program Coordinator.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="placeholder-note">Specific office room numbers and direct phone extensions to be added here.</div>
-        </div>
-      </div>
-
-    </div><!-- end floor panels -->
-  </div><!-- end grid -->
-
-  <!-- ===== QUICK REFERENCE ===== -->
-  <section style="margin-top: 3rem;">
-    <h2>Quick Floor Reference</h2>
-    <div class="three-col" style="margin-top:1rem;">
-      <div class="card">
-        <h3>🌟 Adjunct Essentials</h3>
-        <ul>
-          <li><strong>Floor 1:</strong> Lounge, Café, Entry</li>
-          <li><strong>Floor 4:</strong> Faculty Lounge</li>
-          <li><strong>Floor 5:</strong> HR &amp; your paycheck</li>
-        </ul>
-      </div>
-      <div class="card coral-border">
-        <h3>📍 Student-Facing Spaces</h3>
-        <ul>
-          <li><strong>Floor 1:</strong> Shared Lounge, Café</li>
-          <li><strong>Floor 2:</strong> Library</li>
-          <li><strong>Floor 3:</strong> Cafeteria, Namaste Hall</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🚻 All-Gender Restrooms</h3>
-        <ul>
-          <li><strong>Floor 4</strong> (confirmed)</li>
-          <li>Additional locations on other floors — check floor signage</li>
-        </ul>
-        <div class="placeholder-note">Full restroom location list to be confirmed with Facilities.</div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <p class="footer-org">California Institute of Integral Studies</p>
-      <p class="footer-title">ICP Adjunct Faculty Portal</p>
-      <p class="footer-desc">Campus map for adjunct professors at 1453 Mission Street, San Francisco. Floor layouts are subject to change — check with Facilities for current room assignments.</p>
-    </div>
-    <div>
-      <p class="footer-links-heading">Portal Pages</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="hr-pay.html">HR &amp; Getting Paid</a></li>
-        <li><a href="pedagogy.html">Pedagogical Resources</a></li>
-        <li><a href="expectations.html">Attendance &amp; Accommodations</a></li>
-        <li><a href="campus-map.html">Campus Map</a></li>
-        <li><a href="transportation.html">Getting Here</a></li>
-        <li><a href="approach.html">CIIS Approach</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-links-heading">CIIS Links</p>
-      <ul class="footer-links">
-        <li><a href="https://www.ciis.edu" target="_blank" rel="noopener">ciis.edu</a></li>
-        <li><a href="https://library.ciis.edu" target="_blank" rel="noopener">CIIS Library</a></li>
-        <li><a href="https://ciis.instructure.com" target="_blank" rel="noopener">Canvas LMS</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 California Institute of Integral Studies · 1453 Mission St, San Francisco, CA 94103</span>
-    <span>CIIS is located on unceded Ramaytush Ohlone land.</span>
-  </div>
-</footer>
-
-<script>
-function showFloor(num, clickedBtn) {
-  // Hide all floor cards
-  document.querySelectorAll('.floor-card').forEach(fc => {
-    fc.classList.remove('visible');
-  });
-  // Remove active from all strips
-  document.querySelectorAll('.building-floor-strip').forEach(s => {
-    s.classList.remove('active');
-  });
-  // Show selected floor
-  document.getElementById('floor-' + num).classList.add('visible');
-  clickedBtn.classList.add('active');
-  // Scroll to panel on mobile
-  if (window.innerWidth < 700) {
-    document.getElementById('floor-' + num).scrollIntoView({behavior: 'smooth', block: 'start'});
-  }
-}
-
-function toggleAccordion(btn) {
-  const body = btn.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-  document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('open'));
-  if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
-}
-</script>
+  <div id="sitefooter"></div>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
