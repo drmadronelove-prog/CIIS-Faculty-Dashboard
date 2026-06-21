@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
   <style>
     .floor { display:flex; gap:1.25rem; align-items:flex-start; }
     .floor-badge {
@@ -19,6 +20,12 @@
     }
     .floor-body { flex:1; min-width:0; }
     @media (max-width:520px){ .floor{ flex-direction:column; } }
+    .food-map { height: 400px; position: relative; z-index: 0; border-radius: var(--r); border: 1px solid var(--border); margin-bottom: .6rem; }
+    .leaflet-popup-content { font-family: var(--font-body); font-size: .85rem; line-height: 1.45; }
+    .leaflet-popup-content strong { font-family: var(--font-body); }
+    .ct-addr { font-size: .85rem; color: var(--ink-faint); margin: 0 0 .35rem; }
+    .card-links { display: flex; flex-wrap: wrap; gap: .9rem; margin: .15rem 0 0; }
+    .card-links a { font-size: .85rem; display: inline-flex; align-items: center; gap: .3rem; }
   </style>
 </head>
 <body data-page="campus-map" data-depth="0" data-title="Campus Map">
@@ -124,53 +131,106 @@
       <!-- ===== FOOD AND COFFEE (NEW) ===== -->
       <section class="section" aria-labelledby="food-h">
         <h2 id="food-h">Food and coffee near campus</h2>
-        <p>A few nearby options around 1453 Mission St, in the Civic Center / SoMa area. Hours and addresses change — verify current details on Google Maps before you go.</p>
+        <p>Nearby spots around 1453 Mission St, in the Civic Center / SoMa area, with addresses and links. Map pins are approximate — use the directions link on each card for exact navigation, and check the website for current hours.</p>
 
-        <h3 style="margin-top:1rem;">Coffee &amp; cafés</h3>
+        <div id="food-map" class="food-map" role="img" aria-label="Map of cafés and restaurants near 1453 Mission Street"></div>
+        <p style="font-size:.82rem;color:var(--ink-faint);margin-bottom:1.25rem;">Interactive map — drag to pan, use + / − to zoom, and click a pin for details.</p>
+
+        <h3>Coffee &amp; cafés</h3>
         <div class="grid-3">
           <div class="info-card">
             <h3><i class="ti ti-coffee" aria-hidden="true"></i> Sightglass Coffee</h3>
-            <p>270 7th St (at Folsom), about an 8-minute walk. SF roaster with pour-overs and pastries.</p>
+            <p class="ct-addr">270 7th St</p>
+            <p>SF roaster with pour-overs and pastries.</p>
+            <p class="card-links">
+              <a href="https://sightglasscoffee.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Sightglass+Coffee+270+7th+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
-            <h3><i class="ti ti-coffee" aria-hidden="true"></i> Blue Bottle Coffee</h3>
-            <p>66 Mint Plaza (off 5th &amp; Mission), about a 12-minute walk. Specialty espresso and drip.</p>
+            <h3><i class="ti ti-cup" aria-hidden="true"></i> Earthbar</h3>
+            <p class="ct-addr">1560 Mission St</p>
+            <p>Smoothies, juices, and wellness bites.</p>
+            <p class="card-links">
+              <a href="https://earthbar.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Earthbar+1560+Mission+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
         </div>
 
-        <h3 style="margin-top:1.25rem;">Lunch &amp; dinner</h3>
+        <h3 style="margin-top:1.25rem;">Restaurants &amp; markets</h3>
         <div class="grid-3">
           <div class="info-card">
-            <h3><i class="ti ti-soup" aria-hidden="true"></i> Tu Lan</h3>
-            <p>8 Sixth St, about a 10-minute walk. Historic, no-frills Vietnamese spot.</p>
+            <h3><i class="ti ti-soup" aria-hidden="true"></i> Tú Lan</h3>
+            <p class="ct-addr">8 6th St</p>
+            <p>Longtime no-frills Vietnamese spot.</p>
+            <p class="card-links">
+              <a href="https://tulansf.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Tu+Lan+8+6th+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
             <h3><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i> Zuni Café</h3>
-            <p>1658 Market St, about a 9-minute walk. San Francisco classic — roast chicken and Caesar salad.</p>
+            <p class="ct-addr">1658 Market St</p>
+            <p>San Francisco classic — roast chicken and Caesar.</p>
+            <p class="card-links">
+              <a href="https://zunicafe.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Zuni+Cafe+1658+Market+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
-            <h3><i class="ti ti-fish" aria-hidden="true"></i> Poke Bar</h3>
-            <p>A short walk from campus. Build-your-own poke bowls.</p>
+            <h3><i class="ti ti-fish" aria-hidden="true"></i> Poké Bar</h3>
+            <p class="ct-addr">1355 Market St</p>
+            <p>Build-your-own poke bowls.</p>
+            <p class="card-links">
+              <a href="https://www.ilovepokebar.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Poke+Bar+1355+Market+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
             <h3><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i> Moya</h3>
-            <p>A short walk from campus. Ethiopian dishes and injera.</p>
+            <p class="ct-addr">121 9th St</p>
+            <p>Authentic Ethiopian dishes and injera.</p>
+            <p class="card-links">
+              <a href="https://eatmoya.square.site" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Moya+121+9th+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
             <h3><i class="ti ti-leaf" aria-hidden="true"></i> Rad Radish</h3>
-            <p>A short walk from campus. Plant-based comfort food and bowls.</p>
+            <p class="ct-addr">301 Hayes St</p>
+            <p>Fully plant-based comfort food and bowls.</p>
+            <p class="card-links">
+              <a href="https://www.eatradradish.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rad+Radish+301+Hayes+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
             <h3><i class="ti ti-meat" aria-hidden="true"></i> Jay's Grill</h3>
-            <p>A short walk from campus. Casual grill and quick bites.</p>
-          </div>
-          <div class="info-card">
-            <h3><i class="ti ti-basket" aria-hidden="true"></i> Heart of the City Farmers Market</h3>
-            <p>UN Plaza (Market &amp; 7th), about a 7-minute walk. Local produce and prepared food on Wednesdays and Sundays.</p>
+            <p class="ct-addr">1400 Market St</p>
+            <p>Mediterranean plates, kebabs, and quick bites.</p>
+            <p class="card-links">
+              <a href="https://jaysgrills.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Jays+Grill+1400+Market+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
           <div class="info-card">
             <h3><i class="ti ti-salad" aria-hidden="true"></i> Little Gem</h3>
-            <p>400 Grove St (Hayes Valley), about a 10-minute walk. Bright, health-minded bowls and salads.</p>
+            <p class="ct-addr">400 Grove St</p>
+            <p>Bright, health-minded bowls and salads.</p>
+            <p class="card-links">
+              <a href="https://littlegemsf.com" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Little+Gem+400+Grove+St+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
+          </div>
+          <div class="info-card">
+            <h3><i class="ti ti-basket" aria-hidden="true"></i> Heart of the City Farmers Market</h3>
+            <p class="ct-addr">Civic Center (Fulton Plaza)</p>
+            <p>Open-air farmers market — produce and prepared food (Wednesdays and Sundays).</p>
+            <p class="card-links">
+              <a href="https://hotcfarmersmarket.org" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Heart+of+the+City+Farmers+Market+Civic+Center+San+Francisco" target="_blank" rel="noopener"><i class="ti ti-map-pin" aria-hidden="true"></i> Directions</a>
+            </p>
           </div>
         </div>
       </section>
@@ -192,5 +252,37 @@
 
   <div id="sitefooter"></div>
   <script src="assets/js/site.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  (function () {
+    if (typeof L === "undefined" || !document.getElementById("food-map")) return;
+    var spots = [
+      { n: "CIIS — 1453 Mission St", a: "1453 Mission St, San Francisco", lat: 37.7740, lng: -122.4157, q: "1453 Mission St San Francisco", w: "" },
+      { n: "Sightglass Coffee", a: "270 7th St", lat: 37.7767, lng: -122.4083, q: "Sightglass+Coffee+270+7th+St+San+Francisco", w: "https://sightglasscoffee.com" },
+      { n: "Earthbar", a: "1560 Mission St", lat: 37.7733, lng: -122.4175, q: "Earthbar+1560+Mission+St+San+Francisco", w: "https://earthbar.com" },
+      { n: "Tú Lan", a: "8 6th St", lat: 37.7819, lng: -122.4096, q: "Tu+Lan+8+6th+St+San+Francisco", w: "https://tulansf.com" },
+      { n: "Zuni Café", a: "1658 Market St", lat: 37.7726, lng: -122.4221, q: "Zuni+Cafe+1658+Market+St+San+Francisco", w: "https://zunicafe.com" },
+      { n: "Poké Bar", a: "1355 Market St", lat: 37.7768, lng: -122.4164, q: "Poke+Bar+1355+Market+St+San+Francisco", w: "https://www.ilovepokebar.com" },
+      { n: "Moya", a: "121 9th St", lat: 37.7753, lng: -122.4129, q: "Moya+121+9th+St+San+Francisco", w: "https://eatmoya.square.site" },
+      { n: "Rad Radish", a: "301 Hayes St", lat: 37.7768, lng: -122.4233, q: "Rad+Radish+301+Hayes+St+San+Francisco", w: "https://www.eatradradish.com" },
+      { n: "Jay's Grill", a: "1400 Market St", lat: 37.7760, lng: -122.4188, q: "Jays+Grill+1400+Market+St+San+Francisco", w: "https://jaysgrills.com" },
+      { n: "Little Gem", a: "400 Grove St", lat: 37.7779, lng: -122.4231, q: "Little+Gem+400+Grove+St+San+Francisco", w: "https://littlegemsf.com" },
+      { n: "Heart of the City Farmers Market", a: "Civic Center (Fulton Plaza)", lat: 37.7792, lng: -122.4154, q: "Heart+of+the+City+Farmers+Market+Civic+Center+San+Francisco", w: "https://hotcfarmersmarket.org" }
+    ];
+    var map = L.map("food-map", { scrollWheelZoom: false }).setView([37.7763, -122.4158], 15);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+    spots.forEach(function (s) {
+      var dir = "https://www.google.com/maps/search/?api=1&query=" + s.q;
+      var html = "<strong>" + s.n + "</strong><br>" + s.a + "<br>" +
+        (s.w ? '<a href="' + s.w + '" target="_blank" rel="noopener">Website</a> &middot; ' : "") +
+        '<a href="' + dir + '" target="_blank" rel="noopener">Directions</a>';
+      L.marker([s.lat, s.lng]).addTo(map).bindPopup(html);
+    });
+    setTimeout(function () { map.invalidateSize(); }, 200);
+  })();
+  </script>
 </body>
 </html>
