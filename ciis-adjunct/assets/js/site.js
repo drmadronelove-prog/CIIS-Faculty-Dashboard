@@ -171,7 +171,7 @@
           '<li><a href="https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology" target="_blank" rel="noopener">ICP program page</a></li>' +
           '<li><a href="https://ciis.instructure.com" target="_blank" rel="noopener">Canvas LMS</a></li>' +
           '<li><a href="https://library.ciis.edu" target="_blank" rel="noopener">CIIS Library</a></li>' +
-          '<li><a href="https://www.ciis.edu/student-services/disability-services" target="_blank" rel="noopener">Disability Services</a></li>' +
+          '<li><a href="https://www.ciis.edu/student-services/accessibility" target="_blank" rel="noopener">Accessibility services</a></li>' +
         "</ul></div>" +
         "<div><h3>Support</h3><ul class=\"footer-links\">" +
           '<li><a href="https://www.vclhub.com" target="_blank" rel="noopener">IT support — vclhub.com</a></li>' +
