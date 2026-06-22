@@ -63,7 +63,7 @@ body {
   font-size: 1.02rem;
   line-height: 1.65;
   color: var(--ink);
-  background: var(--bg);
+  background: linear-gradient(to top, #D3E0D0 0%, #E7E4DD 48%, #F6F0E9 100%) fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -143,7 +143,7 @@ body[data-page="home"] .rolebar { display: none; }   /* homepage uses the hero s
 .content { min-width: 0; padding-bottom: 3rem; }
 
 .sidebar { position: sticky; top: 130px; background: var(--surface); border: none; border-radius: var(--r-lg); padding: 1.35rem 1.15rem; box-shadow: var(--nm-raised); max-height: calc(100vh - 150px); overflow-y: auto; }
-.sidebar h2 { font-family: var(--font-body); font-size: .74rem; letter-spacing: .07em; color: var(--teal); margin: 1.3rem 0 .6rem; font-weight: 600; }
+.sidebar h2 { font-family: var(--font-body); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin: 1.3rem 0 .6rem; font-weight: 600; }
 .sidebar h2:first-child { margin-top: 0; }
 .sidebar ul { list-style: none; padding: 0; margin: 0; }
 .sidebar a {
@@ -197,15 +197,18 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
   box-shadow: var(--nm-raised);
 }
 .hero.has-wave { background:
-    linear-gradient(125deg, rgba(156,30,90,.85), rgba(196,42,116,.55) 55%, rgba(30,140,140,.40)),
+    linear-gradient(135deg, rgba(138,22,76,.78), rgba(178,32,94,.58)),
     var(--magenta) url("../images/hero-wave.jpg") center / cover no-repeat;
 }
 .hero-body { position: relative; z-index: 1; max-width: 700px; }
 .hero h1 { color: #fff; font-size: clamp(2.3rem, 5.4vw, 4rem); margin-bottom: .35em; }
 .hero .hero-sub { color: rgba(255,255,255,.93); font-size: 1.2rem; max-width: 48ch; margin-bottom: 1.3rem; }
-.hero .eyebrow { background: rgba(255,255,255,.18); color: #fff; }
-.role-current { display: block; font-size: .9rem; color: rgba(255,255,255,.85); margin: .9rem 0 1.1rem; }
-.role-current strong { color: #fff; }
+.hero .eyebrow { background: transparent; color: rgba(255,255,255,.82); text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; padding: 0; margin-bottom: 1rem; }
+.role-label { color: rgba(255,255,255,.88); font-size: .95rem; margin-right: .15rem; align-self: center; }
+.qf-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: .3rem 1rem; margin-bottom: 1.25rem; }
+.qf-head h2 { margin: 0; }
+.role-current { font-size: .9rem; color: var(--ink-soft); margin: 0; }
+.role-current strong { color: var(--magenta); }
 
 .hero .role-pill { background: rgba(255,255,255,.16); box-shadow: none; border: 1px solid rgba(255,255,255,.5); color: #fff; }
 .hero .role-pill:hover { color: #fff; background: rgba(255,255,255,.26); }
@@ -228,9 +231,9 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
 .qf-card { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r-lg); overflow: hidden; color: inherit; box-shadow: var(--nm-raised-sm); transition: transform .15s ease, box-shadow .15s ease; }
 .qf-card:hover { transform: translateY(-3px); box-shadow: var(--nm-raised), 0 0 0 2px var(--teal); text-decoration: none; }
-.qf-banner { height: 92px; background-repeat: no-repeat; }
-.qf-banner.pink { background: var(--pink) url("../images/tiles.png") center top / cover no-repeat; }
-.qf-banner.silver { background: #D8D4CC url("../images/tiles.png") center 40% / cover no-repeat; }
+.qf-banner { height: 110px; background-repeat: no-repeat; background-size: cover; background-position: center; }
+.qf-banner.pink { background-color: var(--pink); background-image: url("../images/tiles.png"); background-position: center top; }
+.qf-banner.silver { background-color: #D8D4CC; background-image: url("../images/tiles.png"); background-position: center 42%; }
 .qf-card-body { padding: 1.25rem 1.4rem 1.5rem; }
 .qf-kicker { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
 .qf-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin: 0 0 .35rem; color: var(--ink); }
