@@ -22,19 +22,31 @@
       <nav id="breadcrumb" class="breadcrumb"></nav>
 
       <!-- ===== HERO ===== -->
-      <section class="hero" aria-labelledby="hero-h">
+      <section class="hero has-wave" aria-labelledby="hero-h">
         <div class="hero-body">
           <span class="eyebrow">California Institute of Integral Studies</span>
           <h1 id="hero-h">Welcome. What do you need?</h1>
           <p class="hero-sub">Resources for adjunct faculty, core faculty, and teaching assistants in the ICP program.</p>
-          <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:1rem;">
-            <i class="ti ti-arrow-up" aria-hidden="true"></i> Choose your role above to personalize what you see.
-          </p>
+          <div class="role-pills" role="group" aria-label="Select your role">
+            <button class="role-pill" type="button" data-role-value="all" aria-pressed="false">All roles</button>
+            <button class="role-pill" type="button" data-role-value="adjunct" aria-pressed="false">Adjunct faculty</button>
+            <button class="role-pill" type="button" data-role-value="core" aria-pressed="false">Core faculty</button>
+            <button class="role-pill" type="button" data-role-value="ta" aria-pressed="false">Teaching assistants</button>
+          </div>
+          <p class="role-current">Showing resources for <strong>all roles</strong></p>
           <label for="qf-search" class="searchbar">
             <i class="ti ti-search" aria-hidden="true"></i>
             <span class="sr-only">Search resources</span>
             <input id="qf-search" type="search" placeholder="Search — payroll, syllabus, Canvas setup…" autocomplete="off">
           </label>
+          <div class="hero-tags">
+            <span class="tags-label">Popular:</span>
+            <a href="hr-pay.html">Payroll</a>
+            <a href="pedagogy.html">Syllabi</a>
+            <a href="first-steps.html#tech">Canvas</a>
+            <a href="hr-pay.html#events">Events</a>
+            <a href="campus-map.html">Campus</a>
+          </div>
         </div>
       </section>
 
@@ -44,46 +56,39 @@
         <p>Jump straight to what you came for. Type in the search box above to filter these cards.</p>
         <div class="card-grid">
 
-          <a class="qf-card" href="hr-pay.html" data-role="all">
-            <span class="qf-icon"><i class="ti ti-currency-dollar ic-purple" aria-hidden="true"></i></span>
-            <h3>Getting paid</h3>
-            <p>Contracts, payroll steps, direct deposit, timesheets.</p>
+          <a class="qf-card" href="hr-pay.html" data-role="all" data-searchtext="payroll contract direct deposit timesheet pay money">
+            <div class="qf-banner pink"></div>
+            <div class="qf-card-body"><span class="qf-kicker">HR &amp; pay</span><h3>Getting paid</h3><p>Contracts, payroll steps, direct deposit, timesheets.</p></div>
           </a>
 
-          <a class="qf-card" href="pedagogy.html" data-role="all">
-            <span class="qf-icon"><i class="ti ti-file-text ic-teal" aria-hidden="true"></i></span>
-            <h3>Syllabi & rubrics</h3>
-            <p>Past syllabi, course descriptions, grading rubrics.</p>
+          <a class="qf-card" href="pedagogy.html" data-role="all" data-searchtext="syllabus rubric course description teaching guide">
+            <div class="qf-banner silver"></div>
+            <div class="qf-card-body"><span class="qf-kicker">Pedagogy</span><h3>Syllabi &amp; rubrics</h3><p>Past syllabi, course descriptions, grading rubrics.</p></div>
           </a>
 
-          <a class="qf-card" href="first-steps.html" data-role="all">
-            <span class="qf-icon"><i class="ti ti-checklist ic-coral" aria-hidden="true"></i></span>
-            <h3>New hire checklist</h3>
-            <p>Step-by-step onboarding for new faculty and TAs.</p>
+          <a class="qf-card" href="first-steps.html" data-role="all" data-searchtext="onboarding checklist new hire first steps orientation">
+            <div class="qf-banner pink"></div>
+            <div class="qf-card-body"><span class="qf-kicker">First steps</span><h3>New hire checklist</h3><p>Step-by-step onboarding for new faculty and TAs.</p></div>
           </a>
 
-          <a class="qf-card" href="first-steps.html#tech" data-role="all">
-            <span class="qf-icon"><i class="ti ti-device-desktop ic-blue" aria-hidden="true"></i></span>
-            <h3>Canvas & tech setup</h3>
-            <p>LMS tutorial, CIIS email, Colleague access.</p>
+          <a class="qf-card" href="first-steps.html#tech" data-role="all" data-searchtext="canvas lms email colleague tech setup login">
+            <div class="qf-banner silver"></div>
+            <div class="qf-card-body"><span class="qf-kicker">Tech setup</span><h3>Canvas &amp; tech setup</h3><p>LMS tutorial, CIIS email, Colleague access.</p></div>
           </a>
 
-          <a class="qf-card" href="hr-pay.html#events" data-role="all">
-            <span class="qf-icon"><i class="ti ti-calendar-event ic-amber" aria-hidden="true"></i></span>
-            <h3>Events approval</h3>
-            <p>Forms and deadlines for large, medium, and small events.</p>
+          <a class="qf-card" href="hr-pay.html#events" data-role="all" data-searchtext="events approval forms deadlines workshop conference">
+            <div class="qf-banner pink"></div>
+            <div class="qf-card-body"><span class="qf-kicker">Events</span><h3>Events approval</h3><p>Forms and deadlines for large, medium, and small events.</p></div>
           </a>
 
-          <a class="qf-card" href="campus-map.html" data-role="all">
-            <span class="qf-icon"><i class="ti ti-map-2 ic-pink" aria-hidden="true"></i></span>
-            <h3>Campus & food</h3>
-            <p>Floor map, lounge, café, nearby coffee and food.</p>
+          <a class="qf-card" href="campus-map.html" data-role="all" data-searchtext="campus map food cafe lounge floor coffee">
+            <div class="qf-banner silver"></div>
+            <div class="qf-card-body"><span class="qf-kicker">Campus</span><h3>Campus &amp; food</h3><p>Floor map, lounge, café, nearby coffee and food.</p></div>
           </a>
 
-          <a class="qf-card" href="#support" data-role="all">
-            <span class="qf-icon"><i class="ti ti-headset ic-gray" aria-hidden="true"></i></span>
-            <h3>IT & facilities support</h3>
-            <p>Tech issues: VCL Hub chat. Building issues: Facilities email.</p>
+          <a class="qf-card" href="#support" data-role="all" data-searchtext="it support facilities help tech vcl hub building">
+            <div class="qf-banner pink"></div>
+            <div class="qf-card-body"><span class="qf-kicker">Support</span><h3>IT &amp; facilities support</h3><p>Tech issues: VCL Hub chat. Building issues: Facilities email.</p></div>
           </a>
 
         </div>

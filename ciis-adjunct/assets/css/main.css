@@ -229,22 +229,8 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 .qf-card { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r-lg); overflow: hidden; color: inherit; box-shadow: var(--nm-raised-sm); transition: transform .15s ease, box-shadow .15s ease; }
 .qf-card:hover { transform: translateY(-3px); box-shadow: var(--nm-raised), 0 0 0 2px var(--teal); text-decoration: none; }
 .qf-banner { height: 92px; background-repeat: no-repeat; }
-.qf-banner.pink {
-  background-color: var(--pink);
-  background-image: url("../images/mosaic-pink.jpg"),
-    repeating-linear-gradient(45deg, rgba(255,255,255,.40) 0 12px, transparent 12px 24px),
-    repeating-linear-gradient(-45deg, rgba(196,42,116,.20) 0 12px, transparent 12px 24px);
-  background-size: cover, auto, auto;
-  background-position: center;
-}
-.qf-banner.silver {
-  background-color: #D8D4CC;
-  background-image: url("../images/mosaic-silver.jpg"),
-    repeating-linear-gradient(45deg, rgba(255,255,255,.45) 0 12px, transparent 12px 24px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,.06) 0 12px, transparent 12px 24px);
-  background-size: cover, auto, auto;
-  background-position: center;
-}
+.qf-banner.pink { background: var(--pink) url("../images/tiles.png") center top / cover no-repeat; }
+.qf-banner.silver { background: #D8D4CC url("../images/tiles.png") center 40% / cover no-repeat; }
 .qf-card-body { padding: 1.25rem 1.4rem 1.5rem; }
 .qf-kicker { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
 .qf-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin: 0 0 .35rem; color: var(--ink); }

@@ -78,10 +78,10 @@
       '<div class="topbar"><div class="topbar-inner">' +
         '<div class="brand">' +
           '<a class="brand-logo" href="https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology" target="_blank" rel="noopener" aria-label="Integral Counseling Psychology program at CIIS (opens in a new tab)">' +
-            '<img src="' + internal("assets/images/icp-logo.png") + '" alt="Integral Counseling Psychology at California Institute of Integral Studies">' +
+            '<img src="' + internal("assets/images/ciis-logo.png") + '" alt="California Institute of Integral Studies">' +
           "</a>" +
-          '<a class="brand-text" href="' + internal("index.html") + '"><span class="b-main">Teaching in ICP</span>' +
-          '<span class="b-sub">Core faculty · adjunct faculty · teaching assistants</span></a>' +
+          '<a class="brand-text" href="' + internal("index.html") + '"><span class="b-main">Integral Counseling Psychology</span>' +
+          '<span class="b-sub">Faculty &amp; teaching portal</span></a>' +
         "</div>" +
         '<button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">' +
           '<i class="ti ti-menu-2" aria-hidden="true"></i></button>' +
@@ -208,6 +208,10 @@
     for (var j = 0; j < pills.length; j++) {
       pills[j].setAttribute("aria-pressed", pills[j].getAttribute("data-role-value") === role ? "true" : "false");
     }
+    // update "showing resources for ..." labels
+    var labels = { all: "all roles", adjunct: "adjunct faculty", core: "core faculty", ta: "teaching assistants" };
+    var cur = document.querySelectorAll(".role-current strong");
+    for (var k = 0; k < cur.length; k++) { cur[k].textContent = labels[role] || "all roles"; }
   }
   function wireRoles() {
     var pills = document.querySelectorAll(".role-pill");
@@ -231,7 +235,8 @@
     input.addEventListener("input", function () {
       var q = this.value.trim().toLowerCase();
       for (var i = 0; i < cards.length; i++) {
-        var match = !q || cards[i].textContent.toLowerCase().indexOf(q) !== -1;
+        var hay = (cards[i].textContent + " " + (cards[i].getAttribute("data-searchtext") || "")).toLowerCase();
+        var match = !q || hay.indexOf(q) !== -1;
         cards[i].classList.toggle("search-hidden", !match);
       }
     });
