@@ -132,7 +132,7 @@ input:focus-visible,
 }
 .brand { display: flex; align-items: center; gap: .65rem; flex-shrink: 0; }
 .brand:hover { text-decoration: none; }
-.brand img { height: 38px; width: auto; }
+.brand img { height: 76px; width: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-text .b-main { font-family: var(--font-head); font-size: 1.05rem; color: var(--ink); font-weight: 600; }
 .brand-text .b-sub { font-size: .72rem; color: var(--ink-faint); }
@@ -223,12 +223,12 @@ input:focus-visible,
    ============================================================ */
 .sidebar {
   position: sticky;
-  top: 124px;
+  top: 156px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 1.1rem 1rem;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 176px);
   overflow-y: auto;
 }
 .sidebar h2 {
@@ -310,7 +310,7 @@ input:focus-visible,
 hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 0; }
 
 /* anchored sections clear the sticky bars */
-[id] { scroll-margin-top: 124px; }
+[id] { scroll-margin-top: 156px; }
 
 /* ============================================================
    HERO (homepage)
