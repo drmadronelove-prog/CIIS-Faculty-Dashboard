@@ -76,11 +76,13 @@
 
     var topbar =
       '<div class="topbar"><div class="topbar-inner">' +
-        '<a class="brand" href="' + internal("index.html") + '">' +
-          '<img src="' + internal("assets/images/icp-logo.png") + '" alt="Integral Counseling Psychology at California Institute of Integral Studies">' +
-          '<span class="brand-text"><span class="b-main">Teaching in ICP</span>' +
-          '<span class="b-sub">Core faculty · adjunct faculty · teaching assistants</span></span>' +
-        "</a>" +
+        '<div class="brand">' +
+          '<a class="brand-logo" href="https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology" target="_blank" rel="noopener" aria-label="Integral Counseling Psychology program at CIIS (opens in a new tab)">' +
+            '<img src="' + internal("assets/images/icp-logo.png") + '" alt="Integral Counseling Psychology at California Institute of Integral Studies">' +
+          "</a>" +
+          '<a class="brand-text" href="' + internal("index.html") + '"><span class="b-main">Teaching in ICP</span>' +
+          '<span class="b-sub">Core faculty · adjunct faculty · teaching assistants</span></a>' +
+        "</div>" +
         '<button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">' +
           '<i class="ti ti-menu-2" aria-hidden="true"></i></button>' +
         '<nav class="mainnav" aria-label="Primary"><ul>' + navItems + "</ul></nav>" +
