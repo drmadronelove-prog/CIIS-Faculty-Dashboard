@@ -583,6 +583,30 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
   margin-bottom: 1.5rem;
 }
 
+/* student "constellation" gallery */
+.constellation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.constellation figure { margin: 0; width: clamp(92px, 13vw, 144px); }
+.constellation img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--purple-100);
+}
+.constellation figure:nth-child(2n) { transform: translateY(20px); }
+.constellation figure:nth-child(3n) { transform: translateY(-10px); }
+@media (max-width: 520px) {
+  .constellation figure:nth-child(2n),
+  .constellation figure:nth-child(3n) { transform: none; }
+}
+
 /* definition table for floor / quick reference */
 .ref-list { list-style: none; padding: 0; }
 .ref-list li { display: flex; gap: .6rem; padding: .5rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
