@@ -585,6 +585,11 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 .btn-outline { background: transparent; color: var(--purple-700); }
 .btn-outline:hover { background: var(--purple-050); color: var(--purple-700); }
 
+/* full (uncropped) photo */
+.photo { width: 100%; height: auto; display: block; border-radius: var(--r); border: 1px solid var(--border); }
+figure.photo-figure { margin: 0 0 1.75rem; }
+figure.photo-figure figcaption { font-size: .82rem; color: var(--ink-faint); margin-top: .45rem; }
+
 /* interior page banner image */
 .page-banner {
   width: 100%;
