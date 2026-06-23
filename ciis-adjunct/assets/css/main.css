@@ -113,8 +113,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .brand-text .b-sub { font-size: .74rem; letter-spacing: .04em; color: var(--teal); }
 
 .mainnav { margin-left: auto; }
-.mainnav ul { list-style: none; display: flex; flex-wrap: wrap; gap: .15rem; padding: 0; margin: 0; }
-.mainnav a { display: inline-block; color: var(--ink-soft); font-size: .9rem; padding: .45rem .75rem; border-radius: 999px; }
+.mainnav ul { list-style: none; display: flex; flex-wrap: nowrap; gap: .1rem; padding: 0; margin: 0; }
+.mainnav a { display: inline-block; white-space: nowrap; color: var(--ink-soft); font-size: .9rem; padding: .45rem .7rem; border-radius: 999px; }
 .mainnav a:hover { background: var(--teal-100); color: var(--teal-700); text-decoration: none; }
 .mainnav a.active { background: var(--magenta); color: #fff; }
 

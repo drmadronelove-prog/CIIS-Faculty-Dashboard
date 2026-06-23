@@ -31,7 +31,6 @@
     { key: "home",           label: "Home",          href: "index.html" },
     { key: "hr-pay",         label: "HR & Pay",      href: "hr-pay.html" },
     { key: "pedagogy",       label: "Pedagogy",      href: "pedagogy.html" },
-    { key: "first-steps",    label: "First Steps",   href: "first-steps.html" },
     { key: "campus-map",     label: "Campus Map",    href: "campus-map.html" },
     { key: "transportation", label: "Getting Here",  href: "transportation.html" },
     { key: "handbook",       label: "Handbook",      href: "handbook.html" },
