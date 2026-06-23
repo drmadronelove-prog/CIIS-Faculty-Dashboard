@@ -233,20 +233,12 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
 .qf-card { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r-lg); overflow: hidden; color: inherit; box-shadow: var(--nm-raised-sm); transition: transform .15s ease, box-shadow .15s ease; }
 .qf-card:hover { transform: translateY(-3px); box-shadow: var(--nm-raised), 0 0 0 2px var(--teal); text-decoration: none; }
-.qf-banner { height: 96px; background-repeat: no-repeat; }
-/* Original tile artwork, stretched edge-to-edge to fill the whole banner (no side strips). */
-.qf-banner.pink {
-  background-color: #E7C6D6;
-  background-image: url("../images/tiles.png");
-  background-position: center top;
-  background-size: 100% 280%;
-}
-.qf-banner.silver {
-  background-color: #D9D5CD;
-  background-image: url("../images/tiles.png");
-  background-position: center 62%;
-  background-size: 100% 280%;
-}
+.qf-banner { height: 96px; }
+/* Three distinct mosaic tile photos (pink / silver / blue), filling the banner
+   edge-to-edge via cover so there are no side strips. */
+.qf-banner.pink   { background: #E7C6D6 url("../images/tile-pink.jpg")   center / cover no-repeat; }
+.qf-banner.silver { background: #D9D5CD url("../images/tile-silver.jpg") center / cover no-repeat; }
+.qf-banner.blue   { background: #C5DCE6 url("../images/tile-blue.jpg")   center / cover no-repeat; }
 .qf-card-body { padding: 1.25rem 1.4rem 1.5rem; }
 .qf-kicker { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
 .qf-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin: 0 0 .35rem; color: var(--ink); }
