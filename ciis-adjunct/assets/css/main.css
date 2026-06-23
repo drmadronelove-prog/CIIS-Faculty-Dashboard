@@ -63,7 +63,7 @@ body {
   font-size: 1.02rem;
   line-height: 1.65;
   color: var(--ink);
-  background: linear-gradient(to top, #D6E4D3 0%, #E0E9DC 50%, #ECEDE5 80%, #F5F3EC 100%) fixed;
+  background: linear-gradient(to top, #E3E5D2 0%, #EAEADD 45%, #F2F1E8 75%, #F8F6EF 100%) fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -148,7 +148,7 @@ body[data-page="home"] .rolebar { display: none; }   /* homepage uses the hero s
 .sidebar ul { list-style: none; padding: 0; margin: 0; }
 .sidebar a {
   display: flex; align-items: center; gap: .6rem; padding: .6rem .85rem; margin-bottom: .55rem;
-  border-radius: 999px; color: var(--ink-soft); font-size: .9rem; background: var(--surface);
+  border-radius: 999px; color: var(--ink-soft); font-size: .9rem; background: #EFEEEB;
   box-shadow: var(--nm-raised-sm); transition: transform .12s, color .15s;
 }
 .sidebar a:hover { color: var(--teal-700); transform: translateY(-1px); text-decoration: none; }
@@ -215,6 +215,8 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 .hero .role-pill[aria-pressed="true"] { background: #fff; color: var(--magenta); border-color: #fff; box-shadow: none; }
 
 .searchbar { display: flex; align-items: center; gap: .5rem; background: #fff; border-radius: 999px; padding: .65rem 1.1rem; max-width: 38rem; box-shadow: var(--nm-raised-sm); }
+.hero .role-pills { margin-bottom: .25rem; }
+.hero .searchbar { margin: 1.1rem 0 .25rem; }
 .searchbar i { color: var(--teal); font-size: 1.2rem; }
 .searchbar input { border: none; background: transparent; font-family: var(--font-body); font-size: 1rem; color: var(--ink); width: 100%; }
 .searchbar input:focus { outline: none; }
@@ -231,22 +233,19 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 
 @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
 .qf-card { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r-lg); overflow: hidden; color: inherit; box-shadow: var(--nm-raised-sm); transition: transform .15s ease, box-shadow .15s ease; }
 .qf-card:hover { transform: translateY(-3px); box-shadow: var(--nm-raised), 0 0 0 2px var(--teal); text-decoration: none; }
-.qf-banner { height: 96px; }
+.qf-banner { height: 96px; background-repeat: no-repeat; }
+/* Original tile artwork, stretched edge-to-edge to fill the whole banner (no side strips). */
 .qf-banner.pink {
   background-color: #E7C6D6;
-  background-image:
-    repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.16) 0 25%, rgba(170,60,110,.05) 0 50%),
-    repeating-linear-gradient(90deg, rgba(150,40,95,.12) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(150,40,95,.12) 0 1px, transparent 1px 22px);
-  background-size: 44px 44px, 22px 22px, 22px 22px;
+  background-image: url("../images/tiles.png");
+  background-position: center top;
+  background-size: 100% 280%;
 }
 .qf-banner.silver {
   background-color: #D9D5CD;
-  background-image:
-    repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.20) 0 25%, rgba(0,0,0,.03) 0 50%),
-    repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(0,0,0,.06) 0 1px, transparent 1px 22px);
-  background-size: 44px 44px, 22px 22px, 22px 22px;
+  background-image: url("../images/tiles.png");
+  background-position: center 62%;
+  background-size: 100% 280%;
 }
 .qf-card-body { padding: 1.25rem 1.4rem 1.5rem; }
 .qf-kicker { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
