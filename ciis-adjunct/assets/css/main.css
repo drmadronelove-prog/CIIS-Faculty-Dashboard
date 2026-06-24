@@ -143,6 +143,8 @@ body[data-page="home"] .rolebar { display: none; }   /* homepage uses the hero s
 .content { min-width: 0; padding-bottom: 3rem; }
 
 .sidebar { position: sticky; top: 130px; background: var(--surface); border: none; border-radius: var(--r-lg); padding: 1.35rem 1.15rem; box-shadow: var(--nm-raised); max-height: calc(100vh - 150px); overflow-y: auto; }
+/* Home hides the role bar, so the sticky header is shorter — align the sidebar top with the hero. */
+body[data-page="home"] .sidebar { top: 76px; max-height: calc(100vh - 96px); }
 .sidebar h2 { font-family: var(--font-body); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin: 1.3rem 0 .6rem; font-weight: 600; }
 .sidebar h2:first-child { margin-top: 0; }
 .sidebar ul { list-style: none; padding: 0; margin: 0; }
