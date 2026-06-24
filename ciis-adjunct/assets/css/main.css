@@ -338,6 +338,8 @@ body[data-page="transportation"] .page-banner { height: 340px; }
 /* Pedagogy + HR banners show the full image uncropped (designed graphics). */
 body[data-page="pedagogy"] .page-banner { height: auto; object-fit: contain; }
 body[data-page="hr-pay"] .page-banner { height: auto; object-fit: contain; }
+/* First steps banner shows ~80% of the 944x656 photo (full width, ~20% cropped). */
+body[data-page="first-steps"] .page-banner { height: auto; aspect-ratio: 944 / 525; object-fit: cover; }
 
 .ref-list { list-style: none; padding: 0; }
 .ref-list li { display: flex; gap: .6rem; padding: .55rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
